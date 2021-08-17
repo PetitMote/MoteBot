@@ -3,7 +3,7 @@ Description=MotéBot, best Discord Bot ever
 
 [Service]
 Type=idle
-ExecStart=/path/to/your/venv/bin/python /path/to/main.py
+ExecStart=/path/to/your/venv/bin/python -u /path/to/main.py
 Restart=always
 RestartSec=30
 User=CHANGE TO THE USER YOU WANT
