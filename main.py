@@ -1,16 +1,20 @@
-# This is a sample Python script.
+import discord
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from settings import settings
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+client = discord.Client()
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+@client.event
+async def on_ready():
+    print("Connecté en tant que {0.user}".format(client))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+@client.event
+async def on_message(message):
+    if client.user in message.mentions:
+        print(f"Message de {message.author} reçu : {message.content}")
+        await message.channel.send("Je n'aime pas les gens. Veuillez me laisser tranquille. Je suis un bot.")
+
+
+client.run(settings["token_id"])
