@@ -14,7 +14,7 @@ async def on_ready():
 async def on_message(message):
     if client.user in message.mentions:
         print(f"Message de {message.author} reçu : {message.content}")
-        await message.channel.send("Je n'aime pas les gens. Veuillez me laisser tranquille. Je suis un bot.")
+        await message.channel.send(settings.get("insult", "Je n'aime pas les gens. Veuillez me laisser tranquille. Je suis un bot."))
 
 
 client.run(settings["token_id"])
